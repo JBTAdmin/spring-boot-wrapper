@@ -5,9 +5,7 @@ import com.jbt.microserviceapplication.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PersonController {
@@ -26,9 +24,20 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/person", method = RequestMethod.POST)
+    @PostMapping
     public String addPagePerson(@ModelAttribute Person person, Model model) {
         personService.createPerson(person);
         model.addAttribute("persons", personService.getAllPersons());
-        return "result";
+        return "CRUD";
+    }
+
+    @PostMapping("/edit")
+    public Person editPersonData(@RequestBody Person person){
+        return personService.editPerson(person);
+    }
+
+    @PostMapping("/delete")
+    public void deletePerson(@RequestParam long id){
+        personService.deletePerson(id);
     }
 }

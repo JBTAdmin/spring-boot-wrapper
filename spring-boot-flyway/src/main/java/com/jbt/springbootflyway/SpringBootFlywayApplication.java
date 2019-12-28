@@ -9,5 +9,4 @@ public class SpringBootFlywayApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootFlywayApplication.class, args);
     }
-
 }

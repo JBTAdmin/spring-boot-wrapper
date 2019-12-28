@@ -5,7 +5,12 @@ server:
 spring:
   application:
     name: JBT-Beginner-Microservice
-  # Eureka Config
+
+#  flyway:
+#    enabled: true
+#    locations: classpath:db/migration
+#    schemas: jbt_db
+
 eureka:
   client:
     eureka-server-port: 8761

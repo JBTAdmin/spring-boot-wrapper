@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jbt_db
+    password: Password2019
+    username: root
