@@ -1,0 +1,29 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3s  #This will not work as custom ttl has been defined
+  redis:
+    host: localhost
+    port: 6379
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:ORCLCDB
+    password: Oradoc_db1
+    username: sys as SYSDBA
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      auto-commit: false
+  jpa:
+    Hibernate:
+#      show_sql: true # Alternate option to enable show SQL option
+      format_sql: true
+
+logging:
+  level:
+#    root: info     # can be used to set logging level at root level
+    org:
+      springframework:
+        cache: trace
+      hibernate:
+        type: trace
+        SQL: debug
