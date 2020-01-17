@@ -1,0 +1,18 @@
+
+
+spring:
+  datasource:
+    url: mongodb://root:root@localhost:27017/
+    username: root
+    password: root
+#    driver-class-name:
+#  data:
+#    mongodb:
+#      database: user_db
+#      host: localhost
+#      port: 27017
+#      username: root
+#      password: root
+server:
+  port: 9090
+#      uri: mongodb://root:root@localhost:27017/test_db
