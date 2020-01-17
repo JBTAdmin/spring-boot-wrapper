@@ -9,7 +9,7 @@ public interface PersonService {
 
     Person createPerson(Person person);
 
-    Optional<Person> getPerson(Long id);
+    String getPerson(Long id);
 
     Person editPerson(Person person);
 

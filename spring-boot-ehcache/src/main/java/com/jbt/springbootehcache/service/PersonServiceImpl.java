@@ -23,8 +23,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Cacheable("person")
     @Override
-    public Optional<Person> getPerson(Long id) {
-        return personRepository.findById(id);
+    public String getPerson(Long id) {
+        System.out.println("inside the method. Means caching is not HIT");
+        return personRepository.findById(1l).get().getName();
     }
 
     @Override
@@ -47,7 +48,7 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findAll(PageRequest.of(pageNumber, pageSize)).getContent();
     }
 
-    @Cacheable("persons")
+//    @Cacheable("persons")
     @Override
     public List<Person> getAllPersons() {
         return personRepository.findAll();

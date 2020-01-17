@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class PersonController {
 
     private final PersonService personService;
@@ -22,9 +22,15 @@ public class PersonController {
     }
 
     @GetMapping("/person")
+    public ResponseEntity<String> getPerson(){
+//        List<Person> persons = ;
+        return new ResponseEntity<>(personService.getPerson(9l), HttpStatus.OK);
+    }
+
+    @GetMapping("/persons")
     public ResponseEntity<List<Person>> getPersons(){
-        List<Person> persons = personService.getAllPersons();
-        return new ResponseEntity<>(persons, HttpStatus.OK);
+//        List<Person> persons = ;
+        return new ResponseEntity<>(personService.getAllPersons(), HttpStatus.OK);
     }
 
     @PostMapping("/person")

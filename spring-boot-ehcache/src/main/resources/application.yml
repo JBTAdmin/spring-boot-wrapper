@@ -7,3 +7,6 @@ spring:
     password: Oradoc_db1
     username: sys as SYSDBA
     driver-class-name: oracle.jdbc.driver.OracleDriver
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
