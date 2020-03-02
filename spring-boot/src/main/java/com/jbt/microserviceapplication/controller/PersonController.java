@@ -1,13 +1,18 @@
 package com.jbt.microserviceapplication.controller;
 
-import com.jbt.microserviceapplication.model.Person;
+
+import com.jbt.microserviceapplication.entity.Email;
+import com.jbt.microserviceapplication.entity.Person;
+import com.jbt.microserviceapplication.model.PersonDto;
 import com.jbt.microserviceapplication.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class PersonController {
 
     private final PersonService personService;
@@ -17,27 +22,40 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public String homePage(Model model) {
-        model.addAttribute("person", new Person());
-        return "greeting";
+    @GetMapping("/person")
+    public ResponseEntity<String> getPerson(){
+//        List<Person> persons = ;
+        return new ResponseEntity(personService.getPerson(9l), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/person", method = RequestMethod.POST)
-    @PostMapping
-    public String addPagePerson(@ModelAttribute Person person, Model model) {
-        personService.createPerson(person);
-        model.addAttribute("persons", personService.getAllPersons());
-        return "CRUD";
+    @GetMapping("/persons")
+    public ResponseEntity<List<Person>> getPersons(){
+//        List<Person> persons = ;
+        return new ResponseEntity<>(personService.getAllPersons(), HttpStatus.OK);
     }
 
-    @PostMapping("/edit")
-    public Person editPersonData(@RequestBody Person person){
-        return personService.editPerson(person);
+    @PostMapping("/person")
+    public ResponseEntity<Person> addPagePerson(@RequestBody PersonDto person) {
+        Person person1 =  personService.createPerson(mapPerson(person));
+        return new ResponseEntity<>(person1, HttpStatus.CREATED);
     }
 
-    @PostMapping("/delete")
-    public void deletePerson(@RequestParam long id){
+    Person mapPerson(PersonDto personDto){
+        return Person.builder().age(personDto.getAge()).name(personDto.getName())
+                .email(List.of(Email.builder().emailId("First").build(), Email.builder().emailId(
+                        "SecondMail").build())).build();
+//        return null;
+    }
+
+    @PutMapping("/person")
+    public ResponseEntity<Person> editPersonData(@RequestBody Person person){
+        Person person1 = personService.editPerson(person);
+        return new ResponseEntity<>(person1, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/person")
+    public ResponseEntity deletePerson(@RequestParam long id){
         personService.deletePerson(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

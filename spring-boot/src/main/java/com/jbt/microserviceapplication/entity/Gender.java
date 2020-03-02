@@ -1,4 +1,4 @@
-package com.jbt.microserviceapplication.model;
+package com.jbt.microserviceapplication.entity;
 
 public enum Gender {
     MALE (0), FEMALE(1);

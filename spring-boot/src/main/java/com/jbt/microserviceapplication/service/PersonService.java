@@ -1,7 +1,7 @@
 package com.jbt.microserviceapplication.service;
 
 
-import com.jbt.microserviceapplication.model.Person;
+import com.jbt.microserviceapplication.entity.Person;
 
 import java.util.List;
 import java.util.Optional;
