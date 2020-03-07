@@ -11,8 +11,11 @@ create table EMAIL(
     EMAIL varchar(100) not null,
     person_id int,
     id INT
-)
+);
 
+ALTER TABLE EMAIL
+ADD CONSTRAINT EMAIL_ID_FK
+FOREIGN KEY (person_id) REFERENCES Person;
 
 -- -- ORACLE
 -- create table PERSON (

@@ -1,12 +1,10 @@
 package com.jbt.microserviceapplication.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,26 +13,37 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"email"})
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    Long id;
+    String name;
 
     @Temporal(TemporalType.DATE)
-    private Date dob;
+    Date dob;
 
-    private int age;
+    int age;
 
     @Enumerated(EnumType.ORDINAL)
-    private Gender gender;
-    private Long height;
+    Gender gender;
 
+    Long height;
 
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "person_id") // mappedBy option is not
-    // required
-    // here
-//    @JoinColumn(name = "person_id", referencedColumnName = "id")
-    private List<Email> email;
+    @OneToMany (mappedBy = "person", cascade = CascadeType.ALL,orphanRemoval = true)
+    List<Email> email = new ArrayList<>();
+
+    public void addEmail(Email email1) {
+        if(email == null){
+            email = new ArrayList<>();
+        }
+        email.add( email1 );
+        email1.setPerson( this );
+    }
+
+    public void removeEmail(Email email1) {
+        email.remove( email1 );
+        email1.setPerson( null );
+    }
 }

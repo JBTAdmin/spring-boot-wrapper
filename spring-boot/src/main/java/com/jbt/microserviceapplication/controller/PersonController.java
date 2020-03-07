@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class PersonController {
@@ -41,11 +42,14 @@ public class PersonController {
     }
 
     Person mapPerson(PersonDto personDto){
-        return Person.builder().age(personDto.getAge()).name(personDto.getName())
-                .email(List.of(Email.builder().emailId("First").build(), Email.builder().emailId(
-                        "SecondMail").build())).build();
-//        return null;
-    }
+         Person person = Person.builder().age(personDto.getAge()).name(personDto.getName())
+//                .email(List.of(Email.builder().emailId("First").build(),
+//                        Email.builder().emailId(
+//                        "First").build()))
+                .build();
+        person.addEmail((Email.builder().emailId("@Gmail.com").build()));
+         return person;
+         }
 
     @PutMapping("/person")
     public ResponseEntity<Person> editPersonData(@RequestBody Person person){

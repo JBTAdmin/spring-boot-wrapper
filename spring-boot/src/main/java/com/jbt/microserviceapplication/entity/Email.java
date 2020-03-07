@@ -1,9 +1,7 @@
 package com.jbt.microserviceapplication.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,15 +10,16 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"person"})
 public class Email {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+     Long id;
 
-    @ManyToOne//(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id")
-    Person person;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+     Person person;
 
-    String emailId;
+     String emailId;
 }

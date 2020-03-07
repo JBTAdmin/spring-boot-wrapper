@@ -1,7 +1,7 @@
 package com.jbt.microserviceapplication.service;
 
 import com.jbt.microserviceapplication.entity.Person;
-import com.jbt.microserviceapplication.repository.PersonRepository1;
+import com.jbt.microserviceapplication.repository.PersonRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,10 @@ import java.util.Optional;
 @Service
 public class PersonServiceImpl implements PersonService {
 
-//    @Autowired
-    private PersonRepository1 personRepository;
+    private PersonRepository personRepository;
 
-    public PersonServiceImpl(PersonRepository1 personRepository1) {
-        this.personRepository = personRepository1;
+    public PersonServiceImpl(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
 
