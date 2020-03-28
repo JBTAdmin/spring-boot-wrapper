@@ -35,4 +35,6 @@ logging:
         type:
           descriptor:
             sql: trace
-
+#logging:
+#  level:
+#    root: debug

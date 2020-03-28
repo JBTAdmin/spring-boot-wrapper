@@ -4,9 +4,8 @@ package com.jbt.microserviceapplication.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
+import java.util.*;
 
 @Entity
 @Data
@@ -14,36 +13,29 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"email"})
-public class Person {
+@EqualsAndHashCode(exclude = "{email}")
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
+    private Long id;
+    private String name;
+
+    private String qualification;
+
+    private String address;
 
     @Temporal(TemporalType.DATE)
     Date dob;
 
-    int age;
-
     @Enumerated(EnumType.ORDINAL)
     Gender gender;
 
-    Long height;
+//    private List<PersonRole> roles;
 
-    @OneToMany (mappedBy = "person", cascade = CascadeType.ALL,orphanRemoval = true)
-    List<Email> email = new ArrayList<>();
+    private Long height;
 
-    public void addEmail(Email email1) {
-        if(email == null){
-            email = new ArrayList<>();
-        }
-        email.add( email1 );
-        email1.setPerson( this );
-    }
-
-    public void removeEmail(Email email1) {
-        email.remove( email1 );
-        email1.setPerson( null );
-    }
+    @OneToMany (cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "person_id")
+    private List<Email> email = new ArrayList<>();
 }
