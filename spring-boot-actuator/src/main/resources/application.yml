@@ -1,0 +1,63 @@
+# By Default only INFO and Health endpoint is accessible over HTTP.
+# To see the actuator links enabled use URL : http://localhost:9092/actuator/
+
+server:
+  port: 9091
+
+management:
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
+      status:
+        order: DOWN, UP, UNKNOWN
+    shutdown:
+      enabled: true
+  info:
+    git:
+      mode: full
+  server:
+    port: 9092
+  endpoints:
+    web:
+      exposure:
+        include: '*'        # Enable all endpoint over HTTP
+        exclude: shutdown   # Disable shutdown endpoint
+      base-path: /mgmt      # custom base path for actuator
+
+    #      group:
+
+
+spring:
+  application:
+    name: JBT-Actuator-DEMO
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: true
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:jbt_db
+    username: hello
+    password: jbt
+  security:
+    user:            # User with access to actuator links.
+      name: user     # User can be maintained in DB or LDAP or anywhere. It only needs to have
+                     # ACTUATOR role to access actuator links.
+      password: jbt
+      roles: ACTUATOR
+
+logging:
+  file:
+    name: text.log   # this entry is necessary to enable logfile endpoint
+
+info:
+  app:
+    groupId: @project.groupId@
+    artifactId: @project.artifactId@
+    version: @project.version@
+    name: @project.name@
+    description: @project.description@
+    java.source: @java.version@
