@@ -9,6 +9,6 @@ public class CustomHealthActuator implements HealthIndicator {
 
     @Override
     public Health health() {
-        return Health.down().withDetail("Error Code", 503).build();
+        return Health.up().build();
     }
 }

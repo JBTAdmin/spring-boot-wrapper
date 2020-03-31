@@ -1,5 +1,8 @@
-# By Default only INFO and Health endpoint is accessible over HTTP.
-# To see the actuator links enabled use URL : http://localhost:9092/actuator/
+# By Default all endpoint except SHUTDOWN is enabled. But only INFO and Health endpoint is
+# exposed over HTTP. Endpoint needs to be enabled and exposed in order to access it over HTTP and
+# JMX.
+
+# To see all exposed and enabled actuator links use URL : http://localhost:9092/actuator/
 
 server:
   port: 9091
@@ -11,33 +14,43 @@ management:
       show-details: always
       status:
         order: DOWN, UP, UNKNOWN
-    shutdown:
       enabled: true
+      group:
+        custom:
+          include: db, diskSpace # getBeansOfType(HealthContributor.class)), can be used here
+        my:
+          include: db, diskSpace, ping
+    shutdown:
+      enabled: true     # Disabled By Default
+    info:
+      enabled: true    # Enabled by Default
+    beans:
+      enabled: false
   info:
     git:
       mode: full
   server:
     port: 9092
+#    port: -1   #In case you do not want to expose endpoints over HTTP
   endpoints:
-    web:Å
+    web:
       exposure:
         include: '*'        # Enable all endpoint over HTTP
-        exclude: shutdown   # Disable shutdown endpoint
+        exclude: env   # Disable shutdown endpoint
       base-path: /mgmt      # custom base path for actuator
-
+      cors:
+        allowed-origins: localhost:9093 #
+        allowed-methods: GET
+      path-mapping:
+        health: myhealth
+        info: myinfo
+        env: myenv
     #      group:
 
 
 spring:
   application:
     name: JBT-Actuator-DEMO
-  h2:
-    console:
-      enabled: true
-      path: /console
-      settings:
-        trace: true
-        web-allow-others: false
   datasource:
     url: jdbc:h2:mem:jbt_db
     username: hello
@@ -49,9 +62,15 @@ spring:
       password: jbt
       roles: ACTUATOR
 
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:1002 # Spring Boot Admin Server Config  ???? How to make it
+                                   # registered as localhost
 logging:
   file:
-    name: text.log   # this entry is necessary to enable logfile endpoint
+    name: text.log   # This entry is necessary to enable logfile endpoint
 
 info:
   app:
@@ -61,3 +80,5 @@ info:
     name: @project.name@
     description: @project.description@
     java.source: @java.version@
+
+
