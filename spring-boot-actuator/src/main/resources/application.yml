@@ -19,7 +19,7 @@ management:
   server:
     port: 9092
   endpoints:
-    web:
+    web:Å
       exposure:
         include: '*'        # Enable all endpoint over HTTP
         exclude: shutdown   # Disable shutdown endpoint
