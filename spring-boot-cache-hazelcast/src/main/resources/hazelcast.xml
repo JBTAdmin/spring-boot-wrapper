@@ -1,23 +1,22 @@
 <hazelcast
-        xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.12.xsd"
-        xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.hazelcast.com/schema/config"
+  xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.12.xsd">
 
 
+  <cache name="person">
+    <expiry-policy-factory>
+      <timed-expiry-policy-factory duration-amount="5" expiry-policy-type="ACCESSED"
+        time-unit="SECONDS"/>
+    </expiry-policy-factory>
+    <!--        <statistics-enabled>true</statistics-enabled>-->
+    <!--        <management-enabled>true</management-enabled>-->
+  </cache>
 
-    <map name="person1">
-        <time-to-live-seconds>5</time-to-live-seconds>
-    </map>
-
-    <cache name="person" >
-        <expiry-policy-factory >
-            <timed-expiry-policy-factory expiry-policy-type="ACCESSED" time-unit="SECONDS"
-                                         duration-amount="5" />
-        </expiry-policy-factory>
-        <cach
-<!--        <statistics-enabled>true</statistics-enabled>-->
-<!--        <management-enabled>true</management-enabled>-->
-    </cache>
-    <properties>
-        <property name="hazelcast.logging.type">log4j</property>
-    </properties>
+  <map name="person1">
+    <time-to-live-seconds>5</time-to-live-seconds>
+  </map>
+  <properties>
+    <property name="hazelcast.logging.type">log4j</property>
+  </properties>
 </hazelcast>
