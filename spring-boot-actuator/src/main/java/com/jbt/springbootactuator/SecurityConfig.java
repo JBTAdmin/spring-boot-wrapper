@@ -8,15 +8,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-//                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR_ADMIN")
-                .requestMatchers(EndpointRequest.toAnyEndpoint()).permitAll()
-                .and()
-                .csrf().disable();
-                //.and()
-                //.formLogin();
-    }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        // .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR_ADMIN")
+        .requestMatchers(EndpointRequest.toAnyEndpoint())
+        .permitAll()
+        .and()
+        .csrf()
+        .disable();
+    // .and()
+    // .formLogin();
+  }
 }
