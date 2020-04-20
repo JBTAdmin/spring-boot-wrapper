@@ -1,9 +1,9 @@
 spring:
   flyway:
     locations: classpath:db/script/h2
-#    enabled: false  # To enable or disable the flyway
-#    baseline-on-migrate: true
-#    schemas: jbt_db
+  #    enabled: false  # To enable or disable the flyway
+  #    baseline-on-migrate: true
+  #    schemas: jbt_db
   h2:
     console:
       enabled: true
