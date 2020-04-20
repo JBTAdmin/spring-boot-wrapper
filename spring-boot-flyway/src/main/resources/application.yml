@@ -3,6 +3,4 @@ server:
 
 spring:
   flyway:
-    locations: classpath:db/migration
-#    baseline-on-migrate: true
-#    schemas: jbt_db
+    enabled: true  # To enable or disable the flyway

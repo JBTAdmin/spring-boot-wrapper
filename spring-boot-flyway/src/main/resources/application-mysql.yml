@@ -3,9 +3,9 @@ spring:
     url: jdbc:mysql://localhost:3306/
     password: Password2019
     username: root
-#    schema: jbt_db
+    driver-class-name: com.mysql.jdbc.Driver
 
   flyway:
-    locations: classpath:db/migration/mysql
+    locations: classpath:db/script/mysql
     #    baseline-on-migrate: true
     schemas: jbt_db

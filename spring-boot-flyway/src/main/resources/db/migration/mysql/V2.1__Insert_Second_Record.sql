@@ -1,1 +1,0 @@
-insert into PERSON (id,name, age) values (3,'JBT3', 30);

@@ -6,7 +6,7 @@ spring:
     driver-class-name: oracle.jdbc.driver.OracleDriver
 
   flyway:
-    locations: classpath:db/migration/oracle
+    locations: classpath:db/script/oracle
     #    baseline-on-migrate: true
     #    schemas: jbt_db
     sql-migration-prefix: J

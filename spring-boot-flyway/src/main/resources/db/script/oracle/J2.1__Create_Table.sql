@@ -4,4 +4,4 @@ create table PERSON (
     id INT PRIMARY KEY
 );
 
-insert into PERSON (id,name, age) values (1,'JBT', 10);
+insert into PERSON (id,name, age) values (1,'Oracle_1', 10);
