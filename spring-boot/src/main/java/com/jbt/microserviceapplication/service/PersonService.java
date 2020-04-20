@@ -1,25 +1,23 @@
 package com.jbt.microserviceapplication.service;
 
-
 import com.jbt.microserviceapplication.entity.Person;
 import com.jbt.microserviceapplication.model.PersonDto;
-
 import java.util.List;
 import java.util.Optional;
 
 public interface PersonService {
 
-    Person createPerson(PersonDto person);
+  Person savePerson(PersonDto person);
 
-    Optional<Person> getPerson(Long id);
+  Optional<Person> getPerson(Long id);
 
-    Person editPerson(PersonDto person);
+  Person updatePerson(Person person);
 
-    void deletePersonByNameAndAge(PersonDto person);
+  void deletePersonByNameAndAge(PersonDto person);
 
-    void deletePersonById(Long id);
+  void deletePersonById(Long id);
 
-    List<Person> getAllPersons(int pageNumber, int pageSiz);
+  List<Person> getAllPersons(int pageNumber, int pageSiz);
 
-    List<PersonDto> getAllPersons();
+  List<PersonDto> getAllPersons();
 }

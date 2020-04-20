@@ -2,51 +2,58 @@ package com.jbt.microserviceapplication.model;
 
 import com.jbt.microserviceapplication.entity.Gender;
 import com.jbt.microserviceapplication.entity.Person;
-import com.jbt.microserviceapplication.entity.PersonRole;
-import lombok.Builder;
-import lombok.Data;
-
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-//@Builder
+// @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonDto {
 
-    private Long id;
-    private String name;
-    private String qualification;
-//    private int age; // WILL BE CALCULATED ON UI ONLY AND NOT SAVED IN DB
-    private String address;
-    private Date dob;  // NEEDS TO ADD ON UI
-    private Gender gender;
-    private List<PersonRole> personRoles;  // Check box of ADMIN-USER-CONTRACTOR
-    private Long height;
+  private Long id;
 
-    @Builder
-    public PersonDto(String name, String qualification, String address, Date dob, Gender gender, List<PersonRole> personRoles, Long height, List<String> email) {
-        this.name = name;
-        this.qualification = qualification;
-        this.address = address;
-        this.dob = dob;
-        this.gender = gender;
-        this.personRoles = personRoles;
-        this.height = height;
-        this.email = email;
-    }
+  @NotBlank(message = "Name can not be Blank")
+  @Size(min = 10, max = 100, message = "Name size can only be between 10 to 100")
+  private String name;
 
-    private List<String> email;
+  private String qualification;
 
-    public PersonDto(Person person){
-        this.name = person.getName();
-        this.qualification = person.getQualification();
-        this.address = person.getAddress();
-        this.dob = person.getDob();
-        this.gender = person.getGender();
+  private String address;
 
-        this.height = person.getHeight();
-//        this.email = person.getEmail();
-    }
+  private Date dob;
 
+  private Gender gender;
+
+  @Min(value = 1, message = "Height value can not be less than or equal to 0FT")
+  @Max(value = 10, message = "Height can not be more than 10FT")
+  private Long height;
+
+  @NotEmpty
+  private List<
+          @NotBlank
+          @Pattern(
+              regexp = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}.",
+              message = "Email should be in proper format")
+          String>
+      email;
+
+  public PersonDto(Person person) {
+    this.id = person.getId();
+    this.name = person.getName();
+    this.qualification = person.getQualification();
+    this.address = person.getAddress();
+    this.dob = person.getDob();
+    this.gender = person.getGender();
+    this.height = person.getHeight();
+  }
 }

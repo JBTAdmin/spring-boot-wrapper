@@ -1,11 +1,25 @@
 package com.jbt.microserviceapplication.entity;
 
-
-import lombok.*;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -14,28 +28,28 @@ import java.util.*;
 @AllArgsConstructor
 @ToString(exclude = {"email"})
 @EqualsAndHashCode(exclude = "{email}")
-public class Person implements Serializable {
+public class Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String qualification;
+  @Temporal(TemporalType.DATE)
+  private Date dob;
 
-    private String address;
+  // TODO : @NotEmpty
+  @Enumerated(EnumType.ORDINAL)
+  private Gender gender;
 
-    @Temporal(TemporalType.DATE)
-    Date dob;
+  private String name;
 
-    @Enumerated(EnumType.ORDINAL)
-    Gender gender;
+  private String qualification;
 
-//    private List<PersonRole> roles;
+  private String address;
 
-    private Long height;
+  private Long height;
 
-    @OneToMany (cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "person_id")
-    private List<Email> email = new ArrayList<>();
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "person_id")
+  private List<Email> email = new ArrayList<>();
 }
