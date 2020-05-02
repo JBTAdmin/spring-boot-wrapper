@@ -4,14 +4,14 @@ spring:
       client:
         registration:
           google:
-            client-id: 846598484846-ftrfdtrkigf42id49k1ftrms2epr8ual.apps.googleusercontent.com
-            client-secret: A_sIoVM7Q0Nbn_WCo9quo0Hw
+            client-id:
+            client-secret:
           facebook:
-            client-id: 1587502854722429
-            client-secret: 59233c256cfa245b6c074dd10f27d780
+            client-id:
+            client-secret:
           github:
-            client-id: c5caa909b21ac22f479a
-            client-secret: 4a2d0303b04b41fb559e1ebc1e3e9bd9cc59a382
+            client-id:
+            client-secret:
 
 server:
   port: 8081
