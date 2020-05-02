@@ -1,106 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>spring-boot-ehcache</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.jbt</groupId>
-    <artifactId>spring-boot-ehcache</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-ehcache</name>
-    <description>Demo project for Cache in Spring Boot using ehCache</description>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-cache</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-    </properties>
-
+    <dependency>
+      <artifactId>spring-boot-devtools</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>true</optional>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>ehcache</artifactId>
+      <groupId>org.ehcache</groupId>
+      <version>3.8.1</version>
+    </dependency>
+    <dependency>
+      <artifactId>cache-api</artifactId>
+      <groupId>javax.cache</groupId>
+      <version>1.1.0</version>
+    </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>com.oracle.ojdbc</groupId>-->
+    <!--            <artifactId>ojdbc8</artifactId>-->
+    <!--            <scope>runtime</scope>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>mysql</groupId>-->
+    <!--            <artifactId>mysql-connector-java</artifactId>-->
+    <!--            <scope>runtime</scope>-->
+    <!--        </dependency>-->
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit-vintage-engine</artifactId>
+          <groupId>org.junit.vintage</groupId>
+        </exclusion>
+      </exclusions>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.oracle.ojdbc</groupId>-->
-<!--            <artifactId>ojdbc8</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+      <dependency>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <groupId>org.springframework.cloud</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${spring-cloud.version}</version>
+      </dependency>
     </dependencies>
+  </dependencyManagement>
+  <description>Demo project for Cache in Spring Boot using ehCache</description>
+  <groupId>com.jbt</groupId>
+  <modelVersion>4.0.0</modelVersion>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+  <name>spring-boot-ehcache</name>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.2.2.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+  </properties>
+
+  <version>0.0.1-SNAPSHOT</version>
 
 </project>

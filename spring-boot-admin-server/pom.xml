@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.jbt</groupId>
-	<artifactId>spring-boot-admin-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-admin-server</name>
-	<description>Project for Spring Boot Admin Server</description>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>spring-boot-admin-server</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>13</source>
+          <target>13</target>
+          <compilerArgs>--enable-preview</compilerArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-admin-starter-server</artifactId>
+      <groupId>de.codecentric</groupId>
+      <version>2.2.1</version>
+    </dependency>
 
-	<properties>
-		<java.version>14</java.version>
-		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
-	</properties>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit-vintage-engine</artifactId>
+          <groupId>org.junit.vintage</groupId>
+        </exclusion>
+      </exclusions>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <description>Project for Spring Boot Admin Server</description>
+  <groupId>com.jbt</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <name>spring-boot-admin-server</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-server</artifactId>
-			<version>2.2.1</version>
-		</dependency>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.2.6.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+  <properties>
+    <java.version>14</java.version>
+    <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+  </properties>
 
-<!--	<dependencyManagement>-->
-<!--		<dependencies>-->
-<!--			<dependency>-->
-<!--				<groupId>de.codecentric</groupId>-->
-<!--				<artifactId>spring-boot-admin-dependencies</artifactId>-->
-<!--				<version>${spring-boot-admin.version}</version>-->
-<!--				<type>pom</type>-->
-<!--				<scope>import</scope>-->
-<!--			</dependency>-->
-<!--		</dependencies>-->
-<!--	</dependencyManagement>-->
+  <!--	<dependencyManagement>-->
+  <!--		<dependencies>-->
+  <!--			<dependency>-->
+  <!--				<groupId>de.codecentric</groupId>-->
+  <!--				<artifactId>spring-boot-admin-dependencies</artifactId>-->
+  <!--				<version>${spring-boot-admin.version}</version>-->
+  <!--				<type>pom</type>-->
+  <!--				<scope>import</scope>-->
+  <!--			</dependency>-->
+  <!--		</dependencies>-->
+  <!--	</dependencyManagement>-->
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+  <version>0.0.1-SNAPSHOT</version>
 
 </project>

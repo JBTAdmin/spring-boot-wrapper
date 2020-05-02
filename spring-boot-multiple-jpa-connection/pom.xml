@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>spring-boot-authorization-server</artifactId>
+  <artifactId>spring-boot-multiple-jpa-connection</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -21,22 +21,23 @@
       <groupId>org.springframework.boot</groupId>
     </dependency>
     <dependency>
-      <artifactId>spring-boot-starter-security</artifactId>
-      <groupId>org.springframework.boot</groupId>
+      <artifactId>flyway-core</artifactId>
+      <groupId>org.flywaydb</groupId>
     </dependency>
-    <dependency>
-      <artifactId>spring-security-jwt</artifactId>
-      <groupId>org.springframework.security</groupId>
-      <version>1.0.7.RELEASE</version>
-    </dependency>
-    <dependency>
-      <artifactId>spring-security-oauth2</artifactId>
-      <groupId>org.springframework.security.oauth</groupId>
-      <version>2.1.0.RELEASE</version>
-    </dependency>
+
     <dependency>
       <artifactId>h2</artifactId>
       <groupId>com.h2database</groupId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>ojdbc8</artifactId>
+      <groupId>com.oracle.ojdbc</groupId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -56,20 +57,20 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <description>Spring Boot Project for authprization</description>
+  <description>Spring Boot Application with multiple JPA connection</description>
   <groupId>com.jbt</groupId>
   <modelVersion>4.0.0</modelVersion>
-  <name>spring-boot-authorization-server</name>
+  <name>spring-boot-multiple-jpa-connection</name>
 
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.2.5.RELEASE</version> <!-- lookup parent from repository -->
+    <version>2.2.6.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
-    <java.version>13</java.version>
+    <java.version>11</java.version>
   </properties>
 
   <version>0.0.1-SNAPSHOT</version>
