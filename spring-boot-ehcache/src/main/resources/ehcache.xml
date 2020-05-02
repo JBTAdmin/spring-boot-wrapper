@@ -1,69 +1,68 @@
 <config
-        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-        xmlns='http://www.ehcache.org/v3'
-        xmlns:jsr107='http://www.ehcache.org/v3/jsr107'
-        xsi:schemaLocation="
+  xmlns:jsr107='http://www.ehcache.org/v3/jsr107'
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xmlns='http://www.ehcache.org/v3'
+  xsi:schemaLocation="
         http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd
         http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd">
 
 
-    <service>
-        <jsr107:defaults enable-management="true"
-                         enable-statistics="true">
-<!--            <jsr107:cache name="person" template="catalog-cache"/>-->
-<!--            <jsr107:cache name="persons" template="catalog-cache"/>-->
-        </jsr107:defaults>
-    </service>
+  <cache alias="person" uses-template="catalog-cache">
+    <!--        <key-type>java.lang.String</key-type>-->
+    <!--        <value-type>java.lang.String</value-type>-->
+    <!--        <heap unit="entries">2000</heap>-->
+    <!--        <heap-store-settings>-->
+    <!--            <max-object-size unit="kB">900</max-object-size>-->
+    <!--        </heap-store-settings>-->
+    <!--        <disk-store-settings></disk-store-settings>-->
 
-    <cache-template name="catalog-cache">
-
-        <expiry>
-            <ttl unit="seconds">4</ttl>
-        </expiry>
-        <listeners>
-            <listener>
-                <class>com.jbt.springbootehcache.service.CacheEventLogger</class>
-                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
-                <event-ordering-mode>UNORDERED</event-ordering-mode>
-                <events-to-fire-on>CREATED</events-to-fire-on>
-                <events-to-fire-on>EXPIRED</events-to-fire-on>
-            </listener>
-        </listeners>
-
-        <resources>
-            <heap unit="entries">2</heap>
-            <offheap unit="MB">1</offheap>
-        </resources>
-    </cache-template>
-
-    <cache alias="person" uses-template="catalog-cache">
-<!--        <key-type>java.lang.String</key-type>-->
-<!--        <value-type>java.lang.String</value-type>-->
-<!--        <heap unit="entries">2000</heap>-->
-<!--        <heap-store-settings>-->
-<!--            <max-object-size unit="kB">900</max-object-size>-->
-<!--        </heap-store-settings>-->
-<!--        <disk-store-settings></disk-store-settings>-->
-
-<!--    <expiry >-->
-<!--        <ttl unit="minutes" >10</ttl>-->
-<!--    </expiry>-->
+    <!--    <expiry >-->
+    <!--        <ttl unit="minutes" >10</ttl>-->
+    <!--    </expiry>-->
 
 
+  </cache>
 
-    </cache>
+  <cache-template name="catalog-cache">
 
-<!--    <cache alias="overrideCache">-->
-<!--        <key-type>java.lang.String</key-type>-->
-<!--        <value-type>java.lang.String</value-type>-->
-<!--        <heap unit="entries">2000</heap>-->
-<!--        <jsr107:mbeans enable-management="false" enable-statistics="false"/>-->
-<!--    </cache>-->
+    <expiry>
+      <ttl unit="seconds">4</ttl>
+    </expiry>
+    <listeners>
+      <listener>
+        <class>com.jbt.springbootehcache.service.CacheEventLogger</class>
+        <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+        <event-ordering-mode>UNORDERED</event-ordering-mode>
+        <events-to-fire-on>CREATED</events-to-fire-on>
+        <events-to-fire-on>EXPIRED</events-to-fire-on>
+      </listener>
+    </listeners>
 
-<!--    <cache alias="overrideOneCache">-->
-<!--        <key-type>java.lang.String</key-type>-->
-<!--        <value-type>java.lang.String</value-type>-->
-<!--        <heap unit="entries">2000</heap>-->
-<!--        <jsr107:mbeans enable-statistics="false"/>-->
-<!--    </cache>-->
+    <resources>
+      <heap unit="entries">2</heap>
+      <offheap unit="MB">1</offheap>
+    </resources>
+  </cache-template>
+
+  <service>
+    <jsr107:defaults enable-management="true"
+      enable-statistics="true">
+      <!--            <jsr107:cache name="person" template="catalog-cache"/>-->
+      <!--            <jsr107:cache name="persons" template="catalog-cache"/>-->
+    </jsr107:defaults>
+  </service>
+
+  <!--    <cache alias="overrideCache">-->
+  <!--        <key-type>java.lang.String</key-type>-->
+  <!--        <value-type>java.lang.String</value-type>-->
+  <!--        <heap unit="entries">2000</heap>-->
+  <!--        <jsr107:mbeans enable-management="false" enable-statistics="false"/>-->
+  <!--    </cache>-->
+
+  <!--    <cache alias="overrideOneCache">-->
+  <!--        <key-type>java.lang.String</key-type>-->
+  <!--        <value-type>java.lang.String</value-type>-->
+  <!--        <heap unit="entries">2000</heap>-->
+  <!--        <jsr107:mbeans enable-statistics="false"/>-->
+  <!--    </cache>-->
 </config>

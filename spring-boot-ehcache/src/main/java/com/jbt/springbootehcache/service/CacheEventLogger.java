@@ -7,10 +7,8 @@ import org.ehcache.event.CacheEventListener;
 @Slf4j
 public class CacheEventLogger implements CacheEventListener<Object, Object> {
 
-    @Override
-    public void onEvent(
-            CacheEvent<? extends Object, ? extends Object> cacheEvent) {
-
-        log.info(cacheEvent.toString());
-    }
+  @Override
+  public void onEvent(CacheEvent<? extends Object, ? extends Object> cacheEvent) {
+    log.info(cacheEvent.toString());
+  }
 }

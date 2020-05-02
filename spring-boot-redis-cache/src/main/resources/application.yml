@@ -13,14 +13,25 @@ spring:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     hikari:
       auto-commit: false
+#  datasource:
+#    url: jdbc:h2:mem:jbt_db
+#    username: hello
+#    password: jbt
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: true
+        web-allow-others: false
   jpa:
     Hibernate:
-#      show_sql: true # Alternate option to enable show SQL option
+      #      show_sql: true # Alternate option to enable show SQL option
       format_sql: true
 
 logging:
   level:
-#    root: info     # can be used to set logging level at root level
+    #    root: info     # can be used to set logging level at root level
     org:
       springframework:
         cache: trace

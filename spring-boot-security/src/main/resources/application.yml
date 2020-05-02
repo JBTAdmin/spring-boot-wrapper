@@ -1,6 +1,6 @@
 # Application Config
 server:
-  port : 8085
+  port: 8085
 
 spring:
   h2:

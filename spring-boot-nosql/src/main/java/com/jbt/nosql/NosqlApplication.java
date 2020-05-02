@@ -8,8 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 public class NosqlApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(NosqlApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(NosqlApplication.class, args);
+  }
 }

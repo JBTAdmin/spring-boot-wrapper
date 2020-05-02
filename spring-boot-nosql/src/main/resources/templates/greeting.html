@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Boot: javabeginnerstutorial.com</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Spring Boot: javabeginnerstutorial.com</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
 <h1>New Person</h1>
-<form action="#" th:action="@{/person}" th:object="${person}" method="post">
-    <p>Name: <input type="text" th:field="*{name}"/></p>
-    <p>Age: <input type="number" th:field="*{age}"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+<form action="#" method="post" th:action="@{/person}" th:object="${person}">
+  <p>Name: <input th:field="*{name}" type="text"/></p>
+  <p>Age: <input th:field="*{age}" type="number"/></p>
+  <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>
 </html>

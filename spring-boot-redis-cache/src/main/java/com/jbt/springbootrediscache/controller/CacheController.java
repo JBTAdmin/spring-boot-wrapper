@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/clear/cache")
 public class CacheController {
 
-    public CacheController(CacheManager cacheManager) {
-        this.cacheManager = cacheManager;
-    }
+  CacheManager cacheManager;
 
-    CacheManager cacheManager;
+  public CacheController(CacheManager cacheManager) {
+    this.cacheManager = cacheManager;
+  }
 
-    @GetMapping
-    public void clearAllCache(){
-        cacheManager.getCacheNames().stream().forEach(name -> cacheManager.getCache(name).invalidate());
-    }
+  @GetMapping
+  public void clearAllCache() {
+    cacheManager.getCacheNames().stream().forEach(name -> cacheManager.getCache(name).invalidate());
+  }
 
-    @GetMapping("/{cacheName}")
-    public void clearCache(@PathVariable String cacheName){
-        cacheManager.getCache(cacheName).invalidate();
-    }
+  @GetMapping("/{cacheName}")
+  public void clearCache(@PathVariable String cacheName) {
+    cacheManager.getCache(cacheName).invalidate();
+  }
 }

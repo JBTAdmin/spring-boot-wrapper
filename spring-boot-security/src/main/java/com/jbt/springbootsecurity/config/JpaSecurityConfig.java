@@ -9,14 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @ConditionalOnProperty(name = "test", havingValue = "true", matchIfMissing = true)
 public class JpaSecurityConfig extends BaseSecurityConfig {
 
-    private JpaUserDetailsService jpaUserDetailsService;
+  private JpaUserDetailsService jpaUserDetailsService;
 
-    public JpaSecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
-        this.jpaUserDetailsService = jpaUserDetailsService;
-    }
+  public JpaSecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
+    this.jpaUserDetailsService = jpaUserDetailsService;
+  }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jpaUserDetailsService);
-    }
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(jpaUserDetailsService);
+  }
 }

@@ -115,3 +115,12 @@ java.lang.IllegalStateException: couldn't determine local port. Please set sprin
 2020-04-20 17:20:12.183  INFO 38869 --- [http-nio-9092-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-04-20 17:20:12.184  INFO 38869 --- [http-nio-9092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-04-20 17:20:12.190  INFO 38869 --- [http-nio-9092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-04-20 18:25:43.284  WARN 38869 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m5s917ms).
+2020-04-20 20:11:47.034  WARN 38869 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m33s326ms).
+2020-04-20 22:25:27.970  WARN 38869 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h13m40s937ms).
+2020-04-20 22:41:09.912  INFO 38869 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2020-04-20 22:41:09.914  INFO 38869 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-20 22:41:09.915  INFO 38869 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-04-20 22:41:09.926  INFO 38869 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-04-20 22:41:09.934  INFO 38869 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-04-20 22:41:09.942  INFO 38869 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

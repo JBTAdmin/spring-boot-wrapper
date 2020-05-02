@@ -3,14 +3,14 @@ server:
 
 spring:
   datasource:
-#    url: jdbc:oracle:thin:@localhost:1521:ORCLCDB
-#    password: Oradoc_db1
-#    username: sys as SYSDBA
+    #    url: jdbc:oracle:thin:@localhost:1521:ORCLCDB
+    #    password: Oradoc_db1
+    #    username: sys as SYSDBA
     url: jdbc:mysql://localhost:3306/jbt_db
     password: Password2019
     username: root
     driver-class-name: com.mysql.jdbc.Driver
-#    driver-class-name: oracle.jdbc.driver.OracleDriver
+  #    driver-class-name: oracle.jdbc.driver.OracleDriver
   cache:
     jcache:
       config: classpath:ehcache.xml

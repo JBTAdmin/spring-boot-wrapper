@@ -1,6 +1,6 @@
-//import java.util.Objects;
+// import java.util.Objects;
 //
-//public class InstanceOfPatternMatching {
+// public class InstanceOfPatternMatching {
 //    public static void main(String[] args) {
 //        Object obj = new Person(9);
 //        Person person = null;//new Person(19);
@@ -24,9 +24,9 @@
 //        }
 //        //System.out.println(person1.getAge());  person1 is not accessible here
 //    }
-//}
+// }
 //
-//class Person {
+// class Person {
 //    int age;
 //
 //    public Person(int age) {
@@ -58,8 +58,8 @@
 //        if (this == o) return true;
 //        return (o == null || (o instanceof Person person && person.getAge() == age));
 //    }
-//}
+// }
 //
 //
-////javac --enable-preview --release 14 InstanceOfPatternMatching.java
-////java --enable-preview InstanceOfPatternMatching
+//// javac --enable-preview --release 14 InstanceOfPatternMatching.java
+//// java --enable-preview InstanceOfPatternMatching

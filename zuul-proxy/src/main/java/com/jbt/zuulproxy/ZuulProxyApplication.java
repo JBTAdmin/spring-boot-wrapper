@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class ZuulProxyApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ZuulProxyApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ZuulProxyApplication.class, args);
+  }
 
-    @Bean
-    public SimpleFilter simpleFilter() {
-        return new SimpleFilter();
-    }
+  @Bean
+  public SimpleFilter simpleFilter() {
+    return new SimpleFilter();
+  }
 }
