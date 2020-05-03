@@ -1,27 +1,13 @@
 package com.jbt.springbootmongodb.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Builder
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Document(collection = "companies")
-public class Company {
-
-    @Id
-    private Long id;
-
-    private String name;
-
-    private List<Products> products;
-
-    private Contact contact;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public record Company(@Id Long id, String name, List<Products> products, Contact contact) implements Serializable {
 }

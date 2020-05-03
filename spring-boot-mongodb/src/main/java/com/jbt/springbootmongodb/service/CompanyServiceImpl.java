@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,11 +39,11 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Company editCompany(Company company) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("id").is(company.getId()));
+        query.addCriteria(Criteria.where("id").is(company.id()));
         Update update = new Update();
-        update.set("name", company.getName());
-        update.set("products", company.getProducts());
-        update.set("contact", company.getContact());
+        update.set("name", company.name());
+        update.set("products", company.products());
+        update.set("contact", company.contact());
         return mongoTemplate.findAndModify(query, update, Company.class);
     }
 
@@ -53,25 +52,25 @@ public class CompanyServiceImpl implements CompanyService {
     public Company addProductDetails(Company company, List<Products> products) {
         products.forEach(product -> {
             Query query = new Query();
-            query.addCriteria(Criteria.where("id").is(company.getId()));
+            query.addCriteria(Criteria.where("id").is(company.id()));
             Update update = new Update();
-            update.set("name", company.getName());
+            update.set("name", company.name());
             update.addToSet("products", product);
             mongoTemplate.findAndModify(query, update, Company.class);
         });
-        return findById(company.getId()).orElseGet(null);
+        return findById(company.id()).orElseGet(null);
     }
 
     @Override
     public Company editCompanyContact(Company company, Contact contact) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("id").is(company.getId()));
+        query.addCriteria(Criteria.where("id").is(company.id()));
         Update update = new Update();
-        update.set("name", company.getName());
-        update.set("products", company.getProducts());
+        update.set("name", company.name());
+        update.set("products", company.products());
         update.set("contact", contact);
         mongoTemplate.findAndModify(query, update, Company.class);
-        return findById(company.getId()).orElseGet(null);
+        return findById(company.id()).orElseGet(null);
     }
 
 
@@ -103,14 +102,14 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Company editProductDetails(Company company, Products product) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("id").is(company.getId()));
-        query.addCriteria(Criteria.where("products.code").is(product.getCode()));
+        query.addCriteria(Criteria.where("id").is(company.id()));
+        query.addCriteria(Criteria.where("products.code").is(product.code()));
         Update update = new Update();
-        update.set("products.$.code", product.getCode());
-        update.set("products.$.name", product.getName());
-        update.set("products.$.details", product.getDetails());
+        update.set("products.$.code", product.code());
+        update.set("products.$.name", product.name());
+        update.set("products.$.details", product.details());
+        update.set("products.$.price", product.price());
         mongoTemplate.findAndModify(query, update, Company.class);
-        return findById(company.getId()).orElseGet(null);
+        return findById(company.id()).orElseGet(null);
     }
-
 }

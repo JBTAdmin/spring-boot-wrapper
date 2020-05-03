@@ -1,20 +1,11 @@
 package com.jbt.springbootmongodb.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Products {
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-    private String code;
-
-    private String name;
-
-    private String details;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public record Products(String code, String name, String details, BigDecimal price) implements Serializable {
 }

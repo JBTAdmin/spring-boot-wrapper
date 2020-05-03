@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/company")
@@ -68,7 +68,6 @@ public class CompanyController {
         Company company = companyService.editProductDetails(companyService.findById(companyId).get(), product);
         return new ResponseEntity<>( company, HttpStatus.OK);
     }
-
 
     @PutMapping("/contact/{companyId}")
     public ResponseEntity<Company> addCompanyContact(@PathVariable Long companyId, @RequestBody Contact contact) {

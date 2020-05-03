@@ -1,17 +1,9 @@
 package com.jbt.springbootmongodb.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class Contact {
+import java.io.Serializable;
 
-    private String address;
-
-    private String phone;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public record Contact(String address, String phone) implements Serializable {
 }

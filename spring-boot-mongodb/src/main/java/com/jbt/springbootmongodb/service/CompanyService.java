@@ -4,6 +4,7 @@ import com.jbt.springbootmongodb.model.Company;
 import com.jbt.springbootmongodb.model.Contact;
 import com.jbt.springbootmongodb.model.Products;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 

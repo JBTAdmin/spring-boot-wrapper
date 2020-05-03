@@ -9,6 +9,25 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <groupId>org.springframework.boot</groupId>
       </plugin>
+      <!-- Enable JAVA 14 PReview features -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>${java.version}</release>
+          <compilerArgs>--enable-preview</compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <argLine>--enable-preview</argLine>
+        </configuration>
+      </plugin>
+      <!-- Enable JAVA 14 PReview features -->
     </plugins>
   </build>
   <dependencies>
@@ -69,7 +88,7 @@
   </parent>
 
   <properties>
-    <java.version>11</java.version>
+    <java.version>14</java.version>
   </properties>
 
   <version>0.0.1-SNAPSHOT</version>
