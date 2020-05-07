@@ -1,4 +1,4 @@
-name: MVN Zuul Proxy
+name: MVN Build
 
 on: [push]
 
