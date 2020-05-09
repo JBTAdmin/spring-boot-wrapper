@@ -75,9 +75,9 @@ public class CompanyController {
         return new ResponseEntity<>(company,  HttpStatus.OK);
     }
 
-    @DeleteMapping("/companyName/{name}")
-    public ResponseEntity deleteCompanyByName(@PathVariable String name) {
-        companyService.deleteByName(name);
+    @DeleteMapping("/{companyName}")
+    public ResponseEntity deleteCompanyByName(@PathVariable String companyName) {
+        companyService.deleteByName(companyName);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
