@@ -65,11 +65,11 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.2.5.RELEASE</version> <!-- lookup parent from repository -->
+    <version>2.3.0.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
-    <java.version>13</java.version>
+    <java.version>14</java.version>
   </properties>
 
   <version>0.0.1-SNAPSHOT</version>
