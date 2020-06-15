@@ -103,7 +103,7 @@
   <groupId>com.jbt</groupId>
   <modelVersion>4.0.0</modelVersion>
 
-  <name>microservice-application</name>
+  <name>spring-boot-one-to-many</name>
 
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
