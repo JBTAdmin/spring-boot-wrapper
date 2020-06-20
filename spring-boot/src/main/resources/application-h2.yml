@@ -1,0 +1,27 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: true
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:jbt_db
+    username: hello
+    password: jbt
+#
+#spring:
+#  datasource:
+#    url: mongodb://root:root@localhost:27017/test_db
+#    username: root
+#    password: root
+#    driver-class-name:
+#  data:
+#    mongodb:
+#      database: user_db
+#      host: localhost
+#      port: 27017
+#      username: root
+#      password: root
+#      uri: mongodb://root:root@localhost:27017/test_db
