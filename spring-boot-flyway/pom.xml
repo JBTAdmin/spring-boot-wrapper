@@ -42,6 +42,7 @@
     <dependency>
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
+      <version>1.18.20</version>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -65,11 +66,11 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.3.0.RELEASE</version> <!-- lookup parent from repository -->
+    <version>2.5.6</version> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
-    <java.version>14</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <version>0.0.1-SNAPSHOT</version>

@@ -44,14 +44,14 @@
     <git.developerConnection>https://javabeginnerstutorial.com/contact-us/</git.developerConnection>
     <main.basedir>${basedir}</main.basedir>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>14</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <modules>
     <module>spring-boot</module>
     <module>spring-boot-actuator</module>
     <module>spring-boot-admin-server</module>
-    <module>spring-boot-security-authorization-server</module>
+<!--    <module>spring-boot-security-authorization-server</module>-->
     <module>spring-boot-cache-hazelcast</module>
     <module>spring-boot-ehcache</module>
     <module>spring-boot-flyway</module>
