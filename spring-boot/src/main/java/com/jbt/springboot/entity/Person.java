@@ -1,14 +1,12 @@
 package com.jbt.springboot.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,8 +23,7 @@ public class Person {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Temporal(TemporalType.DATE)
-  private Date dob;
+  private LocalDate dob;
 
   // TODO : @NotEmpty
   @Enumerated(EnumType.ORDINAL)

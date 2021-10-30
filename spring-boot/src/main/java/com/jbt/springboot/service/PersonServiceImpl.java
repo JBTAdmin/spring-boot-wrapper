@@ -7,17 +7,17 @@ import com.jbt.springboot.repository.PersonRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import lombok.AllArgsConstructor;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonServiceImpl<P extends Person> implements PersonService {
+@AllArgsConstructor
+public class PersonServiceImpl implements PersonService {
 
-  private PersonRepository personRepository;
-
-  public PersonServiceImpl(PersonRepository personRepository) {
-    this.personRepository = personRepository;
-  }
+  private final PersonRepository personRepository;
 
   @Override
   public Person savePerson(PersonDto personDto) {
