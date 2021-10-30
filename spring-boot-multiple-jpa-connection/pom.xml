@@ -75,7 +75,7 @@
   </parent>
 
   <properties>
-    <java.version>14</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <version>0.0.1-SNAPSHOT</version>

@@ -10,26 +10,26 @@
         <groupId>org.springframework.boot</groupId>
       </plugin>
       <!-- Enable JAVA 14 PReview features -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>${java.version}</release>
-          <compilerArgs>--enable-preview</compilerArgs>
-          <source>17</source>
-          <target>17</target>
-        </configuration>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>3.8.1</version>-->
+<!--        <configuration>-->
+<!--          <release>${java.version}</release>-->
+<!--&lt;!&ndash;          <compilerArgs>&#45;&#45;enable-preview</compilerArgs>&ndash;&gt;-->
+<!--          <source>17</source>-->
+<!--          <target>17</target>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M3</version>
-        <configuration>
-          <argLine>--enable-preview</argLine>
-        </configuration>
+<!--        <configuration>-->
+<!--          <argLine>&#45;&#45;enable-preview</argLine>-->
+<!--        </configuration>-->
       </plugin>
-      <!-- Enable JAVA 14 PReview features -->
+      <!-- Enable JAVA PReview features -->
     </plugins>
   </build>
   <dependencies>
