@@ -77,7 +77,7 @@
   </parent>
 
   <properties>
-    <java.version>14</java.version>
+    <java.version>17</java.version>
     <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
   </properties>
 

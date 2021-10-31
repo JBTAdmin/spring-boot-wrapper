@@ -1,12 +1,12 @@
-package com.jbt.springbootmultiplejpaconnection;
+package com.jbt.springbootauthorizationserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootMultipleJpaConnectionApplication {
+public class AuthorizationServerApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootMultipleJpaConnectionApplication.class, args);
+    SpringApplication.run(SpringBootAuthorizationServerApplication.class, args);
   }
 }

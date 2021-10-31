@@ -1,12 +1,12 @@
-package com.jbt.springbootredis;
+package com.jbt.springbootsecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootRedisApplication {
+public class SecurityApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootRedisApplication.class, args);
+    SpringApplication.run(SecurityApplication.class, args);
   }
 }

@@ -1,12 +1,12 @@
-package com.jbt.springbootsecurity;
+package com.jbt.springbootmultiplejpaconnection;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootSecurityApplication {
+public class MultipleJpaConnectionApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootSecurityApplication.class, args);
+    SpringApplication.run(MultipleJpaConnectionApplication.class, args);
   }
 }

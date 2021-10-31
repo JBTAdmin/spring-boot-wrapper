@@ -1,12 +1,12 @@
-package com.jbt.springbootauthorizationserver;
+package com.jbt.springbootactuator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootAuthorizationServerApplication {
+public class ActuatorApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootAuthorizationServerApplication.class, args);
+    SpringApplication.run(ActuatorApplication.class, args);
   }
 }

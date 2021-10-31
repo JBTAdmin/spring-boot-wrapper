@@ -1,9 +1,3 @@
-# By Default all endpoint except SHUTDOWN is enabled. But only INFO and Health endpoint is
-# exposed over HTTP. Endpoint needs to be enabled and exposed in order to access it over HTTP and
-# JMX.
-
-# To see all exposed and enabled actuator links use URL : http://localhost:9092/actuator/ or http://localhost:9092/mgmt/
-
 server:
   port: 9091
 
@@ -21,31 +15,32 @@ management:
         my:
           include: db, diskSpace, ping
     shutdown:
-      enabled: true     # Disabled By Default
+      enabled: true         # Disabled By Default
     info:
-      enabled: true    # Enabled by Default
+      enabled: true         # With Spring Boot 2.5.6 It is not enabled by default.
     beans:
       enabled: false
   info:
     git:
       mode: full
   server:
-    port: 9092
-  #    port: -1   #In case you do not want to expose endpoints over HTTP
+    port: 9092              # Set port for actuator endpoint different from port of the application
+  #    port: -1             #Set port as -1, In case you do not want to expose endpoints over HTTP
   endpoints:
     web:
       exposure:
-        include: '*'        # Enable all endpoint over HTTP
-        exclude: env   # Disable shutdown endpoint
-      base-path: /mgmt      # custom base path for actuator
+        include: health,metrics,info,logfile        # At least health endpoint needs to be enabled
+#        exclude: env                 # Useful when all endpoints are enabled.
+      base-path: /manage      # custom base path for actuator
       cors:
         allowed-origins: localhost:9093 #
         allowed-methods: GET
       path-mapping:
-        health: myhealth
-        info: myinfo
-        env: myenv
-    #      group:
+        health: jbthealth
+        info: jbtinfo
+        env: jbtenv
+#      discovery:
+#        enabled: false          #Use to disable discovery page, which displayes list of avaialble actuator endpoint.
 
 
 spring:
@@ -56,12 +51,11 @@ spring:
     username: hello
     password: jbt
   security:
-    user:            # User with access to actuator links.
-      name: user     # User can be maintained in DB or LDAP or anywhere. It only needs to have
+    user: # User with access to actuator links.
+      name: user             # User can be maintained in DB or LDAP or anywhere. It only needs to have
       # ACTUATOR role to access actuator links.
       password: jbt
       roles: ACTUATOR
-
 
   boot:
     admin:
@@ -70,8 +64,9 @@ spring:
         # registered as localhost
 logging:
   file:
-    name: text.log   # This entry is necessary to enable logfile endpoint
+    name: text.log            # This entry is necessary to enable logfile endpoint
 
+#List all the properties that needs to be included in info actuator endpoint.
 info:
   app:
     groupId: @project.groupId@
