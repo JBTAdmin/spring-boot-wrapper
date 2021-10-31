@@ -14,7 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 
 @Configuration
-public class WebClientCall {
+public class WebClientBean {
 
   @Bean
   @LoadBalanced
