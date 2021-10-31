@@ -1,0 +1,5 @@
+rest:
+  api:
+    url: https://reqres.in/api/users
+  template:
+    enabled: true
