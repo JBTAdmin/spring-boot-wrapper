@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>zuul-proxy</artifactId>
+  <artifactId>spring-boot-zuul-proxy</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -26,6 +26,11 @@
       <groupId>org.projectlombok</groupId>
       <version>1.18.20</version>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey.contribs</groupId>
+      <artifactId>jersey-apache-client4</artifactId>
+      <version>1.19.4</version>
     </dependency>
     <dependency>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -64,7 +69,7 @@
   </parent>
 
   <properties>
-    <java.version>14</java.version>
+    <java.version>1.8</java.version>
     <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
   </properties>
 
