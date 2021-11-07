@@ -65,7 +65,7 @@
     <description>Spring Boot Application with multiple JPA connection</description>
     <groupId>com.jbt</groupId>
     <modelVersion>4.0.0</modelVersion>
-    <name>spring-boot-multiple-jpa-connection</name>
+    <name>spring-boot-data-jpa</name>
 
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
