@@ -1,6 +1,6 @@
-package com.jbt.springbootmultiplejpaconnection.repository;
+package com.jbt.repository;
 
-import com.jbt.springbootmultiplejpaconnection.manager.oracle.entity.Email;
+import com.jbt.manager.oracle.entity.Email;
 import java.util.List;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.JpaRepository;

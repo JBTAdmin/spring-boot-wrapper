@@ -1,4 +1,4 @@
-package com.jbt.springbootmultiplejpaconnection.manager.oracle.entity;
+package com.jbt.manager.oracle.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

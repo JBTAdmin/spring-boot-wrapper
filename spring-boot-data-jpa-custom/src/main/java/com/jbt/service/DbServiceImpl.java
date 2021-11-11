@@ -1,10 +1,10 @@
-package com.jbt.springbootmultiplejpaconnection.service;
+package com.jbt.service;
 
-import com.jbt.springbootmultiplejpaconnection.manager.mysql.entity.Person;
-import com.jbt.springbootmultiplejpaconnection.manager.oracle.entity.Email;
-import com.jbt.springbootmultiplejpaconnection.model.PersonDto;
-import com.jbt.springbootmultiplejpaconnection.repository.EmailRepository;
-import com.jbt.springbootmultiplejpaconnection.repository.PersonRepository;
+import com.jbt.repository.EmailRepository;
+import com.jbt.manager.mysql.entity.Person;
+import com.jbt.manager.oracle.entity.Email;
+import com.jbt.model.PersonDto;
+import com.jbt.repository.PersonRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

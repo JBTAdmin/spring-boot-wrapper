@@ -1,7 +1,7 @@
-package com.jbt.springbootmultiplejpaconnection.service;
+package com.jbt.service;
 
-import com.jbt.springbootmultiplejpaconnection.manager.mysql.entity.Person;
-import com.jbt.springbootmultiplejpaconnection.model.PersonDto;
+import com.jbt.manager.mysql.entity.Person;
+import com.jbt.model.PersonDto;
 import java.util.List;
 import java.util.Optional;
 

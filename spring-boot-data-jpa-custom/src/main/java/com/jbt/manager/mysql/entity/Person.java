@@ -1,4 +1,4 @@
-package com.jbt.springbootmultiplejpaconnection.manager.mysql.entity;
+package com.jbt.manager.mysql.entity;
 
 import java.util.Date;
 import javax.persistence.Entity;

@@ -1,8 +1,9 @@
-package com.jbt.springbootmultiplejpaconnection.controller;
+package com.jbt.controller;
 
-import com.jbt.springbootmultiplejpaconnection.manager.mysql.entity.Person;
-import com.jbt.springbootmultiplejpaconnection.model.PersonDto;
-import com.jbt.springbootmultiplejpaconnection.service.DbService;
+import com.jbt.service.DbService;
+import com.jbt.manager.mysql.entity.Person;
+import com.jbt.model.PersonDto;
+
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

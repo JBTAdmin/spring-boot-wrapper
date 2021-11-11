@@ -1,8 +1,9 @@
-package com.jbt.springbootmultiplejpaconnection.model;
+package com.jbt.model;
 
-import com.jbt.springbootmultiplejpaconnection.manager.mysql.entity.Gender;
-import com.jbt.springbootmultiplejpaconnection.manager.mysql.entity.Person;
-import com.jbt.springbootmultiplejpaconnection.manager.oracle.entity.Email;
+import com.jbt.manager.mysql.entity.Gender;
+import com.jbt.manager.mysql.entity.Person;
+import com.jbt.manager.oracle.entity.Email;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
