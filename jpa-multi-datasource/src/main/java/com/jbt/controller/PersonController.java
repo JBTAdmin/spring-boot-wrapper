@@ -5,6 +5,8 @@ import com.jbt.manager.mysql.entity.Person;
 import com.jbt.model.PersonDto;
 
 import java.util.List;
+import java.util.UUID;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,7 @@ public class PersonController {
   }
 
   @GetMapping("/person/{id}")
-  public ResponseEntity<String> getPerson(@PathVariable Long id) {
+  public ResponseEntity<String> getPerson(@PathVariable UUID id) {
     return new ResponseEntity(dbService.getPerson(id), HttpStatus.OK);
   }
 
@@ -41,11 +43,11 @@ public class PersonController {
   }
 
   @PostMapping("/person")
-  public ResponseEntity<Person> addPerson(@RequestBody PersonDto personDto) {
-    Person person = dbService.createPerson(personDto);
+  public ResponseEntity<PersonDto> addPerson(@RequestBody PersonDto personDto) {
+    PersonDto person = dbService.createPerson(personDto);
     log.info(
         "Creating a person Object With name {}, age {}",
-        personDto.getName(),
+        personDto.getPersonName(),
         personDto.getGender());
     return new ResponseEntity<>(person, HttpStatus.CREATED);
   }
@@ -55,13 +57,12 @@ public class PersonController {
     ;
     log.info(
         "Creating a person Object With name {}, age {}",
-        personDto.getName(),
-        personDto.getGender());
+        personDto.getPersonName());
     return new ResponseEntity(dbService.editPerson(personDto), HttpStatus.OK);
   }
 
   @DeleteMapping("/person/{id}")
-  public ResponseEntity deletePerson(@PathVariable long id) {
+  public ResponseEntity deletePerson(@PathVariable UUID id) {
     dbService.deletePersonById(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }

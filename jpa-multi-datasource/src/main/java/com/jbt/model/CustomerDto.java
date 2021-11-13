@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,24 +18,20 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonDto {
+public class CustomerDto {
 
+  //TODO through mapping convert it to string and vice versa
   private UUID id;
-  private String personName;
-  private String qualification;
-  private String address;
+  private String name;
   private Date dob;
   private Gender gender;
-  private Long height;
 
   private List<String> email;
 
-  public PersonDto(Person person) {}
+  public CustomerDto(Person person) {}
 
-  public PersonDto(Person person, List<Email> emails) {
-    this.personName = person.getName();
-    this.qualification = person.getQualification();
-    this.address = person.getAddress();
+  public CustomerDto(Person person, List<Email> emails) {
+    this.name = person.getName();
     this.dob = person.getDob();
     this.gender = person.getGender();
     this.email = emails.stream().map(email1 -> email1.getEmailId()).collect(Collectors.toList());

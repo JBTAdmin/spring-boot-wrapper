@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jbt</groupId>
-  <artifactId>initializr</artifactId>
+  <artifactId>spring-boot-wrapper</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
   <name>Spring Boot Wrapper</name>
@@ -52,18 +52,18 @@
     <module>actuator</module>
     <module>admin-server</module>
 <!--    <module>spring-boot-security-authorization-server</module>-->
-    <module>spring-boot-cache-hazelcast</module>
-    <module>spring-boot-ehcache</module>
+    <module>cache-hazelcast</module>
+    <module>cache-ehcache</module>
     <module>flyway</module>
     <module>kafka</module>
     <module>spring-boot-mongodb</module>
-    <module>spring-boot-data-jpa-custom</module>
+    <module>jpa-multi-datasource</module>
     <module>sql-jpa</module>
     <module>nosql</module>
     <module>spring-boot-redis</module>
-    <module>spring-boot-redis-cache</module>
+    <module>cache-redis</module>
     <module>spring-boot-security</module>
-    <module>spring-boot-security-oauth</module>
+    <module>security-oauth</module>
     <module>spring-security-authorization-server</module>
   </modules>
 

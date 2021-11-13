@@ -5,6 +5,8 @@ spring:
   flyway:
     enabled: false  # To enable or disable the flyway
 
+#TODO how to display query and values passed to that query
+
 jpa:
   config:
     batch_size: 100

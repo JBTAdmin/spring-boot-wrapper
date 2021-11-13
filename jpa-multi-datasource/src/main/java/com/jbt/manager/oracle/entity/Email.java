@@ -1,9 +1,12 @@
 package com.jbt.manager.oracle.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +23,5 @@ public class Email {
 
   @NotNull private String emailId;
 
-  private Long personId;
+  private UUID personId;
 }
