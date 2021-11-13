@@ -4,6 +4,8 @@ import com.jbt.springboot.entity.Person;
 import com.jbt.springboot.model.PersonDto;
 import com.jbt.springboot.service.PersonService;
 import java.util.List;
+import java.util.UUID;
+
 import javax.validation.Valid;
 
 import lombok.AllArgsConstructor;
@@ -34,7 +36,7 @@ public class PersonController {
   }
 
   @GetMapping("{id}")
-  public Person getPerson(@PathVariable Long id) {
+  public Person getPerson(@PathVariable UUID id) {
     return personService
         .getPerson(id)
         .orElseThrow(
@@ -49,7 +51,7 @@ public class PersonController {
   }
 
   @PutMapping("/{id}")
-  public Person editPerson(@RequestBody PersonDto personDto, @PathVariable long id) {
+  public Person editPerson(@RequestBody PersonDto personDto, @PathVariable UUID id) {
 
     return personService
         .getPerson(id)
@@ -62,7 +64,7 @@ public class PersonController {
   }
 
   @DeleteMapping("/{id}")
-  public void deletePerson(@PathVariable long id) {
+  public void deletePerson(@PathVariable UUID id) {
     personService.deletePersonById(id);
   }
 

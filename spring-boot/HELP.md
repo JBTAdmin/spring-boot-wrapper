@@ -9,7 +9,9 @@ POST "http://localhost:8081/api/persons/" : Add new record.
 Example of request
 {
 "name": "JBT",
-"city": "India",
+"address": "India",
 "height": 4,
-"dob": "2021-01-01"
+"dob": "2021-01-01",
+"gender": "Female",
+"qualification": "MCA"
 }

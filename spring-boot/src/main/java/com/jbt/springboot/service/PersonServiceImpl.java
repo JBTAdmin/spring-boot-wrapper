@@ -6,6 +6,7 @@ import com.jbt.springboot.model.PersonDto;
 import com.jbt.springboot.repository.PersonRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class PersonServiceImpl implements PersonService {
   }
 
   @Override
-  public Optional<Person> getPerson(Long id) {
+  public Optional<Person> getPerson(UUID id) {
     return personRepository.findById(id);
   }
 
@@ -40,7 +41,7 @@ public class PersonServiceImpl implements PersonService {
   }
 
   @Override
-  public void deletePersonById(Long id) {
+  public void deletePersonById(UUID id) {
     if (personRepository.existsById(id)) {
       personRepository.deleteById(id);
     } else {
@@ -66,6 +67,7 @@ public class PersonServiceImpl implements PersonService {
         .qualification(personDto.getQualification())
         .dob(personDto.getDob())
         .height(personDto.getHeight())
+        .gender(personDto.getGender())
         .build();
   }
 
