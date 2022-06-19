@@ -1,9 +1,4 @@
 spring:
-  flyway:
-    locations: classpath:db/script/h2
-  #    enabled: false  # To enable or disable the flyway
-  #    baseline-on-migrate: true
-  #    schemas: jbt_db
   h2:
     console:
       enabled: true
@@ -13,7 +8,9 @@ spring:
         web-allow-others: false
   datasource:
     url: jdbc:h2:mem:jbt_db
+    #    url: jdbc:h2:file:jbt_db   // Enable file based h2 DB.
     username: hello
     password: jbt
-#    driver-class-name: org.h2.Driver
-
+#  data:
+#    rest:
+#      detection-strategy: default

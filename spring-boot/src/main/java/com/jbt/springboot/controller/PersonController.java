@@ -5,9 +5,7 @@ import com.jbt.springboot.model.PersonDto;
 import com.jbt.springboot.service.PersonService;
 import java.util.List;
 import java.util.UUID;
-
 import javax.validation.Valid;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

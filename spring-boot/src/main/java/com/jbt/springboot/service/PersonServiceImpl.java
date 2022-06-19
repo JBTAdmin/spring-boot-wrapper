@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import lombok.AllArgsConstructor;
-
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +40,8 @@ public class PersonServiceImpl implements PersonService {
 
   @Override
   public void deletePersonById(UUID id) {
+    PersonDto.builder().oneAddress().address("again").build();
+
     if (personRepository.existsById(id)) {
       personRepository.deleteById(id);
     } else {

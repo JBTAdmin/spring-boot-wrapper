@@ -10,7 +10,7 @@ spring:
 jpa:
   config:
     batch_size: 100
-    schema: jbt
+    schema: jbt   #TODO how to set schema for each datasource
   datasource:
     oracle:
       jdbc-url: jdbc:oracle:thin:@localhost:1521/ORCLPDB1.localdomain
