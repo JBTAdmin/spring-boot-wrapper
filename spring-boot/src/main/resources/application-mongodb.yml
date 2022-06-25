@@ -7,3 +7,8 @@ spring:
       username: root
       password: root
       uri: mongodb://root:root@localhost:27017/test_db
+  #  datasource:
+  #    url: mongodb://root:root@localhost:27017/test_db
+  #    username: root
+  #    password: root
+  #    driver-class-name:

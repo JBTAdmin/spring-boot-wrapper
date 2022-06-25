@@ -40,7 +40,7 @@ public class PersonServiceImpl implements PersonService {
 
   @Override
   public void deletePersonById(UUID id) {
-    PersonDto.builder().oneAddress().address("again").build();
+    PersonDto.builder().address("again").build();
 
     if (personRepository.existsById(id)) {
       personRepository.deleteById(id);

@@ -3,7 +3,6 @@ package com.jbt.springboot.model;
 import com.jbt.springboot.entity.Gender;
 import com.jbt.springboot.entity.Person;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -13,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 
 @Data
 @Builder
@@ -28,8 +26,8 @@ public class PersonDto {
   private String name;
   private String qualification;
 
-  @Singular("oneAddress")
-  private List<String> address;
+  //  @Singular("oneAddress")
+  private String address;
   private Gender gender;
   private LocalDate dob;
 

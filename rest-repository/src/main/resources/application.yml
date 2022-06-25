@@ -11,6 +11,15 @@ spring:
     #    url: jdbc:h2:file:jbt_db   // Enable file based h2 DB.
     username: hello
     password: jbt
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      data-locations: classpath:db/data.sql
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    #    Need to enable below flag to make data.sql use the table created by hibernate.
+    #    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#hibernate-and-datasql
+    defer-datasource-initialization: true
 #  data:
 #    rest:
 #      detection-strategy: default
